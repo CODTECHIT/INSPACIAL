@@ -43,7 +43,7 @@ const stats = [
 ];
 
 const values = [
-  { title: "Nail to Tail Service", desc: "We take everything into our hands, from the smallest detail to the final execution. You provide the vision; we handle the rest." },
+  { title: "End-to-End Service", desc: "We take everything into our hands, from the smallest detail to the final execution. You provide the vision; we handle the rest." },
   { title: "Bespoke Excellence", desc: "Every project is a unique journey. We don't follow trends; we create timeless sanctuaries tailored to your lifestyle." },
   { title: "Strategic Execution", desc: "Our process is rooted in functional planning and refined aesthetics, ensuring a seamless transition from concept to reality." },
   { title: "Premium Craftsmanship", desc: "We partner with the finest artisans to deliver a premium output that exceeds expectations in every square foot." },
@@ -77,12 +77,12 @@ const About = () => {
           >
             <SectionHeading 
               label="Our Philosophy" 
-              title="From Nail to Tail" 
+              title="From Concept to Completion" 
               description="At Inspacial Designs, we believe that luxury lies in the details. We take full ownership of the design process, ensuring a seamless journey from the initial spark of an idea to the final, polished reality."
             />
             <div className="space-y-6 font-body text-muted-foreground leading-relaxed text-lg">
               <p>
-                We don't just design spaces; we manage every single aspect of your project. From the smallest hardware selection to the grandest architectural planning, our team takes everything into their hands. This "nail to tail" approach allows us to maintain absolute control over quality, timeline, and aesthetic integrity.
+                We don't just design spaces; we manage every single aspect of your project. From the smallest hardware selection to the grandest architectural planning, our team takes everything into their hands. This "End-to-End" approach allows us to maintain absolute control over quality, timeline, and aesthetic integrity.
               </p>
               <p>
                 Our mission is to provide a stress-free, premium experience for our clients. By handling every detail—beginning to end—we ensure that the final output is not just a room, but a bespoke sanctuary that reflects your unique vision and lifestyle.

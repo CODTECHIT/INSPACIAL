@@ -132,6 +132,20 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Sub Services CTA */}
+      <section className="section-padding max-w-7xl mx-auto text-center border-t border-border/50">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <span className="font-body text-xs tracking-[0.3em] uppercase text-accent block mb-4">Even More Detail</span>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6 uppercase">Explore Our Specialized Sub-Services</h2>
+          <p className="font-body text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed text-lg">
+            From bespoke furniture to facade design, discover how our specialized expertise can perfect every facet of your project.
+          </p>
+          <Link to="/sub-services" className="inline-flex items-center gap-3 px-10 py-4 bg-background border border-accent text-accent font-body text-sm tracking-widest uppercase hover:bg-accent hover:text-accent-foreground transition-all duration-500">
+            View Sub Services <ArrowRight size={16} />
+          </Link>
+        </motion.div>
+      </section>
+
       {/* Process */}
       <section className="bg-secondary section-padding">
         <div className="max-w-7xl mx-auto">

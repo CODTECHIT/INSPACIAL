@@ -1,14 +1,22 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Paintbrush, Sofa, Lightbulb, Ruler, Building, Box, Zap, Layers } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
-import heroImage from "@/assets/hero-living.jpg";
+import { useState, useEffect } from "react";
+
+import heroImage1 from "@/assets/hero-living.jpg";
+import heroImage2 from "@/assets/project-kitchen.jpg";
+import heroImage3 from "@/assets/project-office.jpg";
+import heroImage4 from "@/assets/project-bedroom.jpg";
+
 import bedroomImage from "@/assets/project-bedroom.jpg";
 import kitchenImage from "@/assets/project-kitchen.jpg";
 import bathroomImage from "@/assets/project-bathroom.jpg";
 import officeImage from "@/assets/project-office.jpg";
 import designerImage from "@/assets/designer-portrait.jpg";
+
+const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4];
 
 const projects = [
   { title: "Serene Retreat", category: "Bespoke Residential", image: bedroomImage },
@@ -34,12 +42,32 @@ const fadeUp = {
 };
 
 const Index = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <Layout>
       {/* Hero */}
       <section className="relative h-[90vh] min-h-[600px] flex items-center md:items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Luxury interior design living room" className="w-full h-full object-cover" />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImage}
+              src={heroImages[currentImage]}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              alt="Luxury interior design"
+              className="w-full h-full object-cover"
+            />
+          </AnimatePresence>
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </div>
@@ -59,13 +87,25 @@ const Index = () => {
             <p className="mt-8 font-body text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed drop-shadow-md">
               We craft premium, detail-driven spaces that reflect sophistication, comfort, and a refined lifestyle.
             </p>
-            <div className="mt-12">
+            <div className="mt-12 flex items-center gap-6">
               <Link
                 to="/portfolio"
                 className="inline-block px-12 py-5 bg-accent text-accent-foreground font-body text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-500 shadow-xl"
               >
                 View Portfolio
               </Link>
+              
+              <div className="hidden md:flex gap-2">
+                {heroImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImage(index)}
+                    className={`w-12 h-1 transition-all duration-500 ${
+                      index === currentImage ? "bg-accent" : "bg-white/30 hover:bg-white/50"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

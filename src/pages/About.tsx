@@ -1,60 +1,83 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
-import designerImage from "@/assets/designer-portrait.jpg";
-import heroImage from "@/assets/hero-living.jpg";
+import companyImage from "@/assets/hero-living.jpg";
+import projectImage from "@/assets/project-kitchen.jpg";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Award, Users, Gem } from "lucide-react";
 
 const stats = [
-  { number: "150+", label: "Luxury Projects" },
-  { number: "12", label: "Years Experience" },
-  { number: "100%", label: "Client Dedication" },
-  { number: "Premium", label: "Material Selection" },
+  { number: "150+", label: "Luxury Projects", icon: Gem },
+  { number: "12", label: "Years Experience", icon: Award },
+  { number: "100%", label: "Client Dedication", icon: Users },
+  { number: "End-to-End", label: "Project Control", icon: CheckCircle2 },
 ];
 
 const values = [
-  { title: "Refined Aesthetics", desc: "We focus on delivering spaces that embody sophistication and timeless beauty." },
-  { title: "Functional Planning", desc: "Every design is rooted in strategic layouts that optimize both flow and utility." },
-  { title: "Bespoke Experiences", desc: "We craft unique environments tailored to the specific lifestyle and vision of our clients." },
-  { title: "Premium Standards", desc: "From custom furniture to designer lighting, we maintain the highest quality in every detail." },
+  { title: "Nail to Tail Service", desc: "We take everything into our hands, from the smallest detail to the final execution. You provide the vision; we handle the rest." },
+  { title: "Bespoke Excellence", desc: "Every project is a unique journey. We don't follow trends; we create timeless sanctuaries tailored to your lifestyle." },
+  { title: "Strategic Execution", desc: "Our process is rooted in functional planning and refined aesthetics, ensuring a seamless transition from concept to reality." },
+  { title: "Premium Craftsmanship", desc: "We partner with the finest artisans to deliver a premium output that exceeds expectations in every square foot." },
 ];
 
 const About = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
-        <img src={heroImage} alt="Inspacial Designs studio" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
-        <div className="relative z-10 section-padding pb-12 max-w-7xl mx-auto w-full">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="font-body text-xs tracking-[0.3em] uppercase text-accent block mb-3">Our Story</span>
-            <h1 className="font-display text-4xl md:text-6xl font-semibold text-primary-foreground uppercase">About Inspacial</h1>
+      <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
+        <img src={companyImage} alt="Inspacial Designs Luxury Interior" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 section-padding max-w-7xl mx-auto w-full">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="font-body text-xs tracking-[0.4em] uppercase text-accent block mb-4">The Studio</span>
+            <h1 className="font-display text-5xl md:text-7xl font-semibold text-white uppercase leading-tight">
+              About <br /> Inspacial Designs
+            </h1>
           </motion.div>
         </div>
       </section>
 
-      {/* Bio */}
+      {/* Philosophy Section */}
       <section className="section-padding max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <img src={designerImage} alt="Saif - Founder" className="w-full aspect-[3/4] object-cover" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.8 }}
+          >
+            <SectionHeading 
+              label="Our Philosophy" 
+              title="From Nail to Tail" 
+              description="At Inspacial Designs, we believe that luxury lies in the details. We take full ownership of the design process, ensuring a seamless journey from the initial spark of an idea to the final, polished reality."
+            />
+            <div className="space-y-6 font-body text-muted-foreground leading-relaxed text-lg">
+              <p>
+                We don't just design spaces; we manage every single aspect of your project. From the smallest hardware selection to the grandest architectural planning, our team takes everything into their hands. This "nail to tail" approach allows us to maintain absolute control over quality, timeline, and aesthetic integrity.
+              </p>
+              <p>
+                Our mission is to provide a stress-free, premium experience for our clients. By handling every detail—beginning to end—we ensure that the final output is not just a room, but a bespoke sanctuary that reflects your unique vision and lifestyle.
+              </p>
+            </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-            <SectionHeading label="Founder" title="Saif" />
-            <div className="space-y-4 font-body text-muted-foreground leading-relaxed">
-              <p>Saif is the Founder of Inspacial Designs – a premium design studio specializing in bespoke residential and luxury spaces. With a keen eye for detail and a passion for architectural excellence, he has established Inspacial as a leader in high-end design.</p>
-              <p>Focused on delivering refined aesthetics, functional planning, and timeless design experiences, Saif leads the studio with an unwavering commitment to craftsmanship and the art of living well.</p>
-              <p>Under his leadership, Inspacial Designs creates premium, detail-driven spaces that reflect sophistication, comfort, and a refined lifestyle for every client.</p>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <img src={projectImage} alt="Luxury Space Execution" className="w-full aspect-square object-cover shadow-2xl" />
+            <div className="absolute -bottom-8 -left-8 bg-accent p-10 hidden md:block shadow-xl">
+              <p className="font-display text-2xl text-accent-foreground font-medium italic">"We take care of every single thing."</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Stats Section */}
       <section className="bg-primary section-padding">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -62,19 +85,27 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center"
+              className="text-center group"
             >
-              <span className="font-display text-4xl md:text-5xl font-semibold text-accent">{stat.number}</span>
-              <p className="font-body text-sm text-primary-foreground/60 mt-2 tracking-wide uppercase">{stat.label}</p>
+              <div className="flex justify-center mb-4">
+                <stat.icon size={32} className="text-accent group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <span className="font-display text-4xl md:text-5xl font-semibold text-accent block">{stat.number}</span>
+              <p className="font-body text-sm text-primary-foreground/60 mt-3 tracking-widest uppercase">{stat.label}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-padding max-w-7xl mx-auto">
-        <SectionHeading label="Philosophy" title="Our Values" description="The principles that guide every design decision and client relationship." align="center" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {/* Values Section */}
+      <section className="section-padding max-w-7xl mx-auto bg-cream/30">
+        <SectionHeading 
+          label="Our Commitment" 
+          title="The Inspacial Way" 
+          description="How we deliver premium results through comprehensive project ownership." 
+          align="center" 
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
           {values.map((value, i) => (
             <motion.div
               key={value.title}
@@ -82,25 +113,33 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex gap-6"
+              className="flex gap-8 p-8 border border-border/50 hover:border-accent/30 transition-colors bg-background"
             >
-              <div className="gold-line mt-3 shrink-0" />
+              <div className="w-1 h-full bg-accent shrink-0" />
               <div>
-                <h3 className="font-display text-xl font-medium mb-2 text-foreground">{value.title}</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{value.desc}</p>
+                <h3 className="font-display text-2xl font-medium mb-4 text-foreground">{value.title}</h3>
+                <p className="font-body text-muted-foreground leading-relaxed">{value.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="bg-secondary section-padding text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">Work With Us</h2>
-          <p className="font-body text-muted-foreground mb-8 max-w-lg mx-auto">We'd love to hear about your project. Let's create something extraordinary together.</p>
-          <Link to="/contact" className="inline-flex items-center gap-3 px-10 py-4 bg-accent text-accent-foreground font-body text-sm tracking-widest uppercase hover:bg-gold-light transition-colors">
-            Get In Touch <ArrowRight size={16} />
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto"
+        >
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6 uppercase tracking-tight">Experience Absolute Design</h2>
+          <p className="font-body text-muted-foreground mb-10 text-lg leading-relaxed">
+            Ready to let us handle your project from beginning to end? We ensure a premium output that reflects your vision.
+          </p>
+          <Link to="/contact" className="inline-flex items-center gap-4 px-12 py-5 bg-accent text-accent-foreground font-body text-sm tracking-[0.2em] uppercase hover:bg-charcoal hover:text-white transition-all duration-500 shadow-lg">
+            Start Your Journey <ArrowRight size={18} />
           </Link>
         </motion.div>
       </section>

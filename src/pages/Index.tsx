@@ -56,17 +56,21 @@ const Index = () => {
       {/* Hero */}
       <section className="relative h-[90vh] min-h-[600px] flex items-center md:items-end overflow-hidden">
         <div className="absolute inset-0">
-          <AnimatePresence mode="wait">
-            <motion.img
+          <AnimatePresence mode="popLayout">
+            <motion.div
               key={currentImage}
-              src={heroImages[currentImage]}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              alt="Luxury interior design"
-              className="w-full h-full object-cover"
-            />
+              initial={{ opacity: 0, scale: 1.2, x: "2%", filter: "blur(10px)" }}
+              animate={{ opacity: 1, scale: 1.1, x: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 1, x: "-2%", filter: "blur(5px)" }}
+              transition={{ duration: 2.5, ease: [0.4, 0, 0.2, 1] }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <img
+                src={heroImages[currentImage]}
+                alt="Luxury interior design"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </AnimatePresence>
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

@@ -1,10 +1,39 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import companyImage from "@/assets/hero-living.jpg";
 import projectImage from "@/assets/project-kitchen.jpg";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Award, Users, Gem } from "lucide-react";
+import { useEffect, useRef } from "react";
+
+const Counter = ({ value }: { value: string }) => {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  // Extract numeric part and suffix
+  const match = value.match(/^(\d+)(.*)$/);
+  const target = match ? parseInt(match[1]) : 0;
+  const suffix = match ? match[2] : value;
+
+  useEffect(() => {
+    if (isInView && target > 0) {
+      const controls = animate(count, target, { duration: 2, ease: "easeOut" });
+      return controls.stop;
+    }
+  }, [isInView, target, count]);
+
+  if (!match) return <span className="whitespace-nowrap">{value}</span>;
+
+  return (
+    <span ref={ref} className="whitespace-nowrap">
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </span>
+  );
+};
 
 const stats = [
   { number: "150+", label: "Luxury Projects", icon: Gem },
@@ -90,7 +119,9 @@ const About = () => {
               <div className="flex justify-center mb-4">
                 <stat.icon size={32} className="text-accent group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <span className="font-display text-4xl md:text-5xl font-semibold text-accent block">{stat.number}</span>
+              <span className="font-display text-4xl md:text-5xl font-semibold text-accent block">
+                <Counter value={stat.number} />
+              </span>
               <p className="font-body text-sm text-primary-foreground/60 mt-3 tracking-widest uppercase">{stat.label}</p>
             </motion.div>
           ))}

@@ -6,42 +6,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --background: 35 30% 95%; /* Soft Off-White/Cream */
+    --foreground: 25 20% 15%; /* Deep Earthy Brown */
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 10%;
+    --card: 35 25% 92%; /* Light Sand */
+    --card-foreground: 25 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover: 35 30% 95%;
+    --popover-foreground: 25 20% 15%;
 
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 25 30% 20%; /* Rich Soil/Deep Umber */
+    --primary-foreground: 35 30% 95%;
 
-    --secondary: 30 10% 96%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 45 25% 85%; /* Muted Clay */
+    --secondary-foreground: 25 30% 20%;
 
-    --muted: 30 10% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 45 15% 90%; /* Pale Stone */
+    --muted-foreground: 25 10% 45%;
 
-    --accent: 38 40% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 28 45% 45%; /* Terracotta/Burnt Orange */
+    --accent-foreground: 35 30% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 10%;
+    --border: 35 15% 85%;
+    --input: 35 15% 85%;
+    --ring: 28 45% 45%;
 
     --radius: 0rem;
 
     --gold: 38 40% 50%;
     --gold-light: 38 30% 70%;
-    --cream: 30 20% 98%;
-    --charcoal: 0 0% 15%;
-    --warm-gray: 0 0% 60%;
-    --taupe: 30 5% 80%;
+    --cream: 35 30% 95%;
+    --charcoal: 25 20% 15%;
+    --warm-gray: 30 10% 60%;
+    --taupe: 30 15% 75%;
+    --sage: 85 15% 55%; /* Sage Green */
+    --clay: 25 25% 65%; /* Muted Clay/Sienna */
 
     --font-display: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;

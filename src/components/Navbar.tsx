@@ -18,8 +18,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
-        <Link to="/" className="font-display text-2xl font-semibold tracking-tight text-foreground uppercase">
-          INSPACIAL<span className="text-accent">.</span>
+        <Link to="/" className="flex items-center gap-3 group">
+          <img src="/logo.png" alt="Inspacial Logo" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
+          <span className="font-display text-2xl font-semibold tracking-tight text-foreground uppercase">
+            INSPACIAL<span className="text-accent">.</span>
+          </span>
         </Link>
 
         {/* Desktop */}

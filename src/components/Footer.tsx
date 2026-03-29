@@ -6,9 +6,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
-            <h3 className="font-display text-3xl font-semibold mb-4 uppercase">
-              INSPACIAL<span className="text-accent">.</span>
-            </h3>
+            <div className="flex items-center gap-3 mb-6 group">
+              <img src="/logo.png" alt="Inspacial Logo" className="h-10 w-auto" />
+              <h3 className="font-display text-3xl font-semibold uppercase">
+                INSPACIAL<span className="text-accent">.</span>
+              </h3>
+            </div>
             <p className="font-body text-primary-foreground/60 max-w-sm leading-relaxed">
               We craft premium, detail-driven spaces that reflect sophistication, comfort, and a refined lifestyle.
             </p>

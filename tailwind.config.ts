@@ -58,6 +58,8 @@ export default {
         charcoal: "hsl(var(--charcoal))",
         "warm-gray": "hsl(var(--warm-gray))",
         taupe: "hsl(var(--taupe))",
+        sage: "hsl(var(--sage))",
+        clay: "hsl(var(--clay))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

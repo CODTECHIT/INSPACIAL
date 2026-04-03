@@ -30,7 +30,7 @@ export const WhatsAppButton = ({ message, className = "" }: WhatsAppButtonProps)
   return (
     <button
       onClick={handleClick}
-      className={`inline-flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-body text-sm tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-xl ${className}`}
+      className={`inline-flex items-center gap-2 px-6 py-4 bg-green-500 hover:bg-green-600 text-white font-body text-sm tracking-wider uppercase whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl ${className}`}
     >
       <MessageCircle size={20} />
       Chat on WhatsApp
@@ -67,13 +67,30 @@ export const WhatsAppCTA = ({
         )}
         <button
           onClick={handleClick}
-          className="inline-flex items-center gap-3 px-10 py-4 bg-green-500 hover:bg-green-600 text-white font-body text-sm tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-xl"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-body text-sm tracking-wider uppercase whitespace-nowrap transition-all duration-300 shadow-lg hover:shadow-xl"
         >
           <MessageCircle size={18} />
           Chat on WhatsApp
         </button>
       </div>
     </section>
+  );
+};
+
+export const FloatingWhatsApp = () => {
+  const handleClick = () => {
+    const defaultMessage = "Hi! I visited your website and I'm interested in discussing a design project. Could we connect on WhatsApp?";
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(defaultMessage)}`, "_blank");
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className="fixed bottom-8 right-8 z-50 p-4 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-500 hover:scale-110 flex items-center justify-center animate-bounce-subtle"
+      aria-label="Chat on WhatsApp"
+    >
+      <MessageCircle size={32} />
+    </button>
   );
 };
 

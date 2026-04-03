@@ -214,48 +214,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Preview */}
-      <section className="section-padding max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative">
-              <img
-                src={designerImage}
-                alt="Lead designer Elena Fontaine"
-                className="w-full aspect-[3/4] object-cover"
-              />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-accent" />
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <SectionHeading
-              label="Founder"
-              title="Saif"
-              description="Founder of Inspacial Designs – a premium design studio specializing in bespoke residential and luxury spaces."
-            />
-            <p className="font-body text-muted-foreground leading-relaxed mb-8">
-              Focused on delivering refined aesthetics, functional planning, and timeless design experiences. We believe that great design is not about trends — it's about creating spaces that reflect sophistication and a refined lifestyle.
-            </p>
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 font-body text-sm tracking-widest uppercase text-accent hover:text-gold-light transition-colors"
-            >
-              Our Story <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Contact CTA */}
       <section className="bg-primary section-padding">
         <div className="max-w-7xl mx-auto text-center">

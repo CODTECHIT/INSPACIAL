@@ -150,7 +150,7 @@ const Services = () => {
                     <div className="mt-auto">
                       <WhatsAppButton 
                         message={service.whatsappMessage}
-                        className="w-full justify-center !py-4 font-semibold text-[10px] tracking-widest bg-accent hover:bg-black text-accent-foreground hover:text-white"
+                        className="w-full justify-center !py-4 font-semibold text-[10px] tracking-wider whitespace-nowrap bg-accent hover:bg-black text-accent-foreground hover:text-white"
                       />
                     </div>
                   </div>

@@ -155,6 +155,28 @@ const About = () => {
           ))}
         </div>
       </section>
+      
+      {/* Founder Section */}
+      <section className="section-padding max-w-4xl mx-auto text-center border-t border-border/30">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+        >
+          <SectionHeading 
+            label="Founder" 
+            title="Saif" 
+            description="Founder of Inspacial Designs – a premium design studio specializing in bespoke residential and luxury spaces."
+            align="center"
+          />
+          <div className="max-w-2xl mx-auto space-y-6 font-body text-muted-foreground leading-relaxed text-lg italic">
+            <p>
+              "Focused on delivering refined aesthetics, functional planning, and timeless design experiences. We believe that great design is not about trends — it's about creating spaces that reflect sophistication and a refined lifestyle."
+            </p>
+          </div>
+        </motion.div>
+      </section>
 
       {/* CTA Section */}
       <section className="bg-secondary section-padding text-center">

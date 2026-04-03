@@ -20,7 +20,19 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message Sent", description: "Thank you! We'll be in touch within 24 hours." });
+    const whatsappMessage = `*New Inquiry via Contact Form*
+*Name:* ${form.name}
+*Email:* ${form.email}
+*Phone:* ${form.phone}
+*Service:* ${form.service || 'General Inquiry'}
+*Message:* ${form.message}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
+    
+    toast({ 
+      title: "Redirecting to WhatsApp...", 
+      description: "Thank you! Our design team will handle your request promptly." 
+    });
     setForm({ name: "", email: "", phone: "", message: "", service: "" });
   };
 

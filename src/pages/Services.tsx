@@ -7,9 +7,9 @@ import { WhatsAppButton, WhatsAppCTA } from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 
 // Using relevant placeholder images for each service
-import archiImage from "@/assets/hero-living.jpg";
-import interiorImage from "@/assets/designer-portrait.jpg";
-import visionImage from "@/assets/project-kitchen.jpg";
+import archiImage from "@/assets/luxury-architectural.png";
+import interiorImage from "@/assets/high-end-interior.png";
+import visionImage from "@/assets/3d-visualization.png";
 import spaceImage from "@/assets/project-office.jpg";
 import furnitureImage from "@/assets/project-bedroom.jpg";
 import lightingImage from "@/assets/project-bathroom.jpg";

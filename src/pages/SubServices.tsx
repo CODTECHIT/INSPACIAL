@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { Sofa, Lightbulb, Palette, Building, Construction, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import { WhatsAppButton, WhatsAppCTA } from "@/components/WhatsAppButton";
 import { Link } from "react-router-dom";
 
 // Using relevant assets
 import furnitureImg from "@/assets/project-bedroom.jpg";
 import lightingImg from "@/assets/project-bathroom.jpg";
-import materialImg from "@/assets/project-kitchen.jpg";
+import materialImg from "@/assets/material-selection.png";
+
 import facadeImg from "@/assets/hero-living.jpg";
 import renovationImg from "@/assets/project-office.jpg";
 
@@ -17,31 +19,41 @@ const subServices = [
     desc: "Bespoke furniture pieces tailored to your exact space and aesthetic requirements, crafted with premium materials.",
     icon: Sofa,
     image: furnitureImg,
+    whatsappMessage: "Hi! I'm interested in Custom Furniture Design. Could you please share more details about your bespoke furniture solutions?"
   },
+
   {
     title: "Designer Lighting Concepts",
     desc: "Sophisticated lighting plans that combine functional illumination with artistic statements to enhance every corner of your home.",
     icon: Lightbulb,
     image: lightingImg,
+    whatsappMessage: "Hi! I'm interested in Designer Lighting Concepts. Could you help me create a perfect lighting plan for my space?"
   },
+
   {
     title: "Material & Finish Selection",
     desc: "Expert curation of premium stones, woods, fabrics, and finishes to ensure a cohesive and luxurious atmosphere.",
     icon: Palette,
     image: materialImg,
+    whatsappMessage: "Hi! I'm interested in Material & Finish Selection. Could you help me choose the best materials and finishes for my project?"
   },
+
   {
     title: "Facade & Elevation Design",
     desc: "Architectural exterior design that creates a striking first impression and harmonizes with the surrounding environment.",
     icon: Building,
     image: facadeImg,
+    whatsappMessage: "Hi! I'm interested in Facade & Elevation Design. Could you share more information about your exterior design services?"
   },
+
   {
     title: "Renovation & Luxury Remodeling",
     desc: "Complete transformation of existing spaces into modern sanctuaries with meticulous attention to structural and aesthetic detail.",
     icon: Construction,
     image: renovationImg,
+    whatsappMessage: "Hi! I'm interested in Renovation & Luxury Remodeling. Can you help me transform my current space into a modern sanctuary?"
   },
+
 ];
 
 const SubServices = () => {
@@ -97,9 +109,11 @@ const SubServices = () => {
                 <h3 className="font-display text-3xl font-medium text-foreground uppercase tracking-tight">{service.title}</h3>
                 <p className="font-body text-muted-foreground text-lg leading-relaxed">{service.desc}</p>
                 <div className="pt-4">
-                  <Link to="/contact" className="inline-flex items-center gap-3 text-accent font-body text-sm tracking-widest uppercase hover:text-primary transition-colors">
-                    Inquire About This Service <ArrowRight size={16} />
-                  </Link>
+                  <WhatsAppButton 
+                    message={service.whatsappMessage}
+                    className="!py-3 !px-6 text-xs" 
+                  />
+
                 </div>
               </div>
             </motion.div>
@@ -108,23 +122,11 @@ const SubServices = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary section-padding text-center">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
-        >
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-white mb-6 uppercase">Ready to refine your vision?</h2>
-          <p className="font-body text-white/70 mb-10 text-lg leading-relaxed">
-            Contact us to discuss how our specialized sub-services can elevate your project to the next level of luxury.
-          </p>
-          <Link to="/contact" className="inline-flex items-center gap-4 px-10 py-4 bg-accent text-accent-foreground font-body text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-500">
-            Get In Touch <ArrowRight size={18} />
-          </Link>
-        </motion.div>
-      </section>
+      <WhatsAppCTA 
+        title="Ready to refine your vision?" 
+        subtitle="Contact us to discuss how our specialized sub-services can elevate your project to the next level of luxury."
+        page="sub-services"
+      />
     </Layout>
   );
 };

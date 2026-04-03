@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { useToast } from "@/hooks/use-toast";
+
+const WHATSAPP_NUMBER = "918179190101";
 
 const contactInfo = [
   { icon: MapPin, label: "Studio", value: "Inspacial Designs Studio\nPremium Residential & Luxury Spaces" },
@@ -131,6 +133,14 @@ const Contact = () => {
               className="px-10 py-4 bg-accent text-accent-foreground font-body text-sm tracking-widest uppercase hover:bg-gold-light transition-colors duration-300"
             >
               Send Message
+            </button>
+            <button
+              type="button"
+              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I would like to discuss a design project. Can we connect?")}`, "_blank")}
+              className="px-10 py-4 bg-green-500 hover:bg-green-600 text-white font-body text-sm tracking-widest uppercase transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <MessageCircle size={18} />
+              Chat on WhatsApp
             </button>
           </motion.form>
         </div>

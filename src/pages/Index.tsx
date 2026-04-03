@@ -3,7 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Paintbrush, Sofa, Lightbulb, Ruler, Building, Box, Zap, Layers } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { useState, useEffect } from "react";
+
 
 import heroImage1 from "@/assets/hero-living.jpg";
 import heroImage2 from "@/assets/project-kitchen.jpg";
@@ -26,10 +28,14 @@ const projects = [
 ];
 
 const services = [
-  { icon: Building, title: "Luxury Architectural Planning", desc: "Comprehensive architectural solutions for premium residential and luxury projects." },
-  { icon: Paintbrush, title: "High-End Interior Design", desc: "Bespoke interiors focused on delivering refined aesthetics and functional planning." },
-  { icon: Box, title: "3D Visualization", desc: "Photorealistic 3D concepts and development to visualize your future space." },
-  { icon: Layers, title: "Space Planning", desc: "Strategic design strategy and space planning for optimal flow and sophistication." },
+  { icon: Building, title: "Luxury Architectural Planning", desc: "Comprehensive architectural solutions for premium residential and luxury projects.", whatsappMessage: "Hi! I'm interested in Luxury Architectural Planning. Could you please share more details about your process and pricing?" },
+
+  { icon: Paintbrush, title: "High-End Interior Design", desc: "Bespoke interiors focused on delivering refined aesthetics and functional planning.", whatsappMessage: "Hi! I'm looking for High-End Interior Design for my space. Could you please share more details about your interior services?" },
+
+  { icon: Box, title: "3D Visualization", desc: "Photorealistic 3D concepts and development to visualize your future space.", whatsappMessage: "Hi! I'd like to get 3D Visualization for my project. Can you help me visualize my future space?" },
+
+  { icon: Layers, title: "Space Planning", desc: "Strategic design strategy and space planning for optimal flow and sophistication.", whatsappMessage: "Hi! I need expert Space Planning for my home/office. How can you help optimize my floor plan?" },
+
 ];
 
 const fadeUp = {
@@ -187,14 +193,22 @@ const Index = () => {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeUp}
-                className="group p-8 bg-background/50 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all duration-500"
+                className="group p-8 bg-background/50 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all duration-500 flex flex-col h-full"
+
               >
                 <div className="w-14 h-14 flex items-center justify-center border border-accent/20 mb-8 group-hover:bg-accent group-hover:border-accent transition-all duration-500 rounded-none">
                   <service.icon size={24} className="text-accent group-hover:text-accent-foreground transition-all duration-500" />
                 </div>
                 <h3 className="font-display text-xl font-medium mb-4 text-foreground tracking-tight">{service.title}</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-6 min-h-[4rem] line-clamp-3">{service.desc}</p>
+                <div className="mt-auto">
+                    <WhatsAppButton 
+                        message={service.whatsappMessage}
+                        className="w-full justify-center !py-3 !px-6 text-[10px] bg-accent hover:bg-black text-accent-foreground hover:text-white"
+                    />
+                </div>
               </motion.div>
+
             ))}
           </div>
         </div>

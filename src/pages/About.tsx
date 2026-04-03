@@ -78,7 +78,7 @@ const About = () => {
             <SectionHeading 
               label="Our Philosophy" 
               title="From Concept to Completion" 
-              description="At Inspacial Designs, we believe that luxury lies in the details. We take full ownership of the design process, ensuring a seamless journey from the initial spark of an idea to the final, polished reality."
+              description={<span><span className="bg-accent/20 px-1 py-0.5 font-semibold">A premium design studio specializing in bespoke residential and luxury spaces</span>, focused on delivering refined aesthetics, functional planning, and timeless design experiences.</span>}
             />
             <div className="space-y-6 font-body text-muted-foreground leading-relaxed text-lg">
               <p>
@@ -96,7 +96,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <img src={projectImage} alt="Luxury Space Execution" className="w-full aspect-square object-cover shadow-2xl" />
+            <img src={projectImage} alt="Luxury Space Execution" loading="lazy" className="w-full aspect-square object-cover shadow-2xl" />
             <div className="absolute -bottom-8 -left-8 bg-accent p-10 hidden md:block shadow-xl">
               <p className="font-display text-2xl text-accent-foreground font-medium italic">"We take care of every single thing."</p>
             </div>

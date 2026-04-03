@@ -62,7 +62,7 @@ const SubServices = () => {
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center overflow-hidden bg-primary">
         <div className="absolute inset-0 opacity-40">
-          <img src={facadeImg} alt="Sub Services Hero" className="w-full h-full object-cover" />
+          <img src={facadeImg} alt="Sub Services Hero" loading="lazy" className="w-full h-full object-cover" />
         </div>
         <div className="relative z-10 section-padding max-w-7xl mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -96,6 +96,7 @@ const SubServices = () => {
                   <img 
                     src={service.image} 
                     alt={service.title} 
+                    loading="lazy"
                     className="w-full aspect-[16/9] object-cover transition-transform duration-700 group-hover:scale-105" 
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />

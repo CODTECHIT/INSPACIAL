@@ -1,63 +1,75 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { WhatsAppCTA } from "@/components/WhatsAppButton";
-import bedroomImage from "@/assets/project-bedroom.jpg";
-import kitchenImage from "@/assets/project-kitchen.jpg";
-import bathroomImage from "@/assets/project-bathroom.jpg";
-import officeImage from "@/assets/project-office.jpg";
-import heroImage from "@/assets/hero-living.jpg";
+import { X } from "lucide-react";
 
 const allProjects = [
-  { title: "Serene Retreat", category: "Residential", location: "Upper East Side, NYC", image: bedroomImage },
-  { title: "The Golden Kitchen", category: "Residential", location: "Tribeca, NYC", image: kitchenImage },
-  { title: "Spa Sanctuary", category: "Residential", location: "Hamptons, NY", image: bathroomImage },
-  { title: "Executive Study", category: "Commercial", location: "Midtown, NYC", image: officeImage },
-  { title: "Velvet Lounge", category: "Hospitality", location: "SoHo, NYC", image: heroImage },
-  { title: "Modern Haven", category: "Residential", location: "Greenwich, CT", image: bedroomImage },
-  
-  // New Collection Vol 1
-  { title: "Luxury Living I", category: "Residential", location: "Premium Suite", image: "/portfolio-optimized/vol1_10.jpg" },
-  { title: "Elegance Restored", category: "Residential", location: "Grand Villa", image: "/portfolio-optimized/vol1_11.jpg" },
-  { title: "Modernist Manor", category: "Residential", location: "Coastal Estate", image: "/portfolio-optimized/vol1_12.jpg" },
-  { title: "The Atrium", category: "Commercial", location: "City Center", image: "/portfolio-optimized/vol1_16.jpg" },
-  { title: "Zen Garden", category: "Residential", location: "Suburban Bliss", image: "/portfolio-optimized/vol1_19.jpg" },
-  { title: "Royal Suite", category: "Hospitality", location: "Palace View", image: "/portfolio-optimized/vol1_2.jpg" },
-  { title: "Pristine Interiors", category: "Residential", location: "Urban Loft", image: "/portfolio-optimized/vol1_22.jpg" },
-  { title: "Grand Ballroom", category: "Hospitality", location: "Event Hall", image: "/portfolio-optimized/vol1_24.jpg" },
-  { title: "Designer Den", category: "Residential", location: "Tech Park", image: "/portfolio-optimized/vol1_26.jpg" },
-  { title: "The Penthouse", category: "Residential", location: "Skyline Tower", image: "/portfolio-optimized/vol1_30.jpg" },
-  
-  // New Collection Vol 2
-  { title: "Minimalist Dream", category: "Residential", location: "Modern Flat", image: "/portfolio-optimized/vol2_1.jpg" },
-  { title: "Cozy Corner", category: "Residential", location: "Heritage Home", image: "/portfolio-optimized/vol2_10.jpg" },
-  { title: "Industrial Loft", category: "Commercial", location: "Old Mill", image: "/portfolio-optimized/vol2_11.jpg" },
-  { title: "Sleek Workspace", category: "Commercial", location: "Innovation Hub", image: "/portfolio-optimized/vol2_12.jpg" },
-  { title: "The Boutique", category: "Commercial", location: "Fashion Street", image: "/portfolio-optimized/vol2_13_.jpg" },
-  { title: "Urban Escape", category: "Residential", location: "Metro Dwelling", image: "/portfolio-optimized/vol2_14_.jpg" },
-  { title: "Harmony Hall", category: "Residential", location: "Peaceful Valley", image: "/portfolio-optimized/vol2_15_.jpg" },
-  { title: "Vibrant Vista", category: "Residential", location: "Parkside", image: "/portfolio-optimized/vol2_16.jpg" },
-  { title: "The Gallery", category: "Commercial", location: "Arts District", image: "/portfolio-optimized/vol2_17.jpg" },
-  { title: "Presidential Office", category: "Commercial", location: "Business District", image: "/portfolio-optimized/vol2_18.jpg" },
-  
-  // New Collection Vol 3
-  { title: "Radiant Residence", category: "Residential", location: "Sunrise Heights", image: "/portfolio-optimized/vol3_1.jpg" },
-  { title: "The Lounge", category: "Hospitality", location: "Nightfall Inn", image: "/portfolio-optimized/vol3_10_.jpg" },
-  { title: "Signature Suite", category: "Hospitality", location: "Grand Plaza", image: "/portfolio-optimized/vol3_2.jpg" },
-  { title: "Creative Cove", category: "Commercial", location: "Studio 101", image: "/portfolio-optimized/vol3_6.jpg" },
-  { title: "Elite Workspace", category: "Commercial", location: "Tech Tower", image: "/portfolio-optimized/vol3_8.jpg" },
-  { title: "Sanctuary Study", category: "Residential", location: "Quiet Street", image: "/portfolio-optimized/vol3_9.jpg" },
+  { image: "/portfolio-optimized/vol1_10.jpg" },
+  { image: "/portfolio-optimized/vol1_11.jpg" },
+  { image: "/portfolio-optimized/vol1_12.jpg" },
+  { image: "/portfolio-optimized/vol1_16.jpg" },
+  { image: "/portfolio-optimized/vol1_19.jpg" },
+  { image: "/portfolio-optimized/vol1_2.jpg" },
+  { image: "/portfolio-optimized/vol1_22.jpg" },
+  { image: "/portfolio-optimized/vol1_24.jpg" },
+  { image: "/portfolio-optimized/vol1_26.jpg" },
+  { image: "/portfolio-optimized/vol1_30.jpg" },
+  { image: "/portfolio-optimized/vol2_1.jpg" },
+  { image: "/portfolio-optimized/vol2_10.jpg" },
+  { image: "/portfolio-optimized/vol2_11.jpg" },
+  { image: "/portfolio-optimized/vol2_12.jpg" },
+  { image: "/portfolio-optimized/vol2_13_.jpg" },
+  { image: "/portfolio-optimized/vol2_14_.jpg" },
+  { image: "/portfolio-optimized/vol2_15_.jpg" },
+  { image: "/portfolio-optimized/vol2_16.jpg" },
+  { image: "/portfolio-optimized/vol2_17.jpg" },
+  { image: "/portfolio-optimized/vol2_18.jpg" },
+  { image: "/portfolio-optimized/vol3_1.jpg" },
+  { image: "/portfolio-optimized/vol3_10_.jpg" },
+  { image: "/portfolio-optimized/vol3_2.jpg" },
+  { image: "/portfolio-optimized/vol3_6.jpg" },
+  { image: "/portfolio-optimized/vol3_8.jpg" },
+  { image: "/portfolio-optimized/vol3_9.jpg" },
+  { image: "/portfolio-optimized/vol1_7.jpg" },
+  { image: "/portfolio-optimized/vol1_33.jpg" },
+  { image: "/portfolio-optimized/vol1_34.jpg" },
+  { image: "/portfolio-optimized/vol1_34_copy.jpg" },
+  { image: "/portfolio-optimized/vol1_38.1.jpg" },
+  { image: "/portfolio-optimized/vol1_41.jpg" },
+  { image: "/portfolio-optimized/vol1_44.jpg" },
+  { image: "/portfolio-optimized/vol1_45.jpg" },
+  { image: "/portfolio-optimized/vol2_2.jpg" },
+  { image: "/portfolio-optimized/vol2_3.jpg" },
+  { image: "/portfolio-optimized/vol2_4.jpg" },
+  { image: "/portfolio-optimized/vol2_9.jpg" },
 ];
 
-const categories = ["All", "Residential", "Commercial", "Hospitality"];
-
 const Portfolio = () => {
-  const [active, setActive] = useState("All");
-  const filtered = active === "All" ? allProjects : allProjects.filter((p) => p.category === active);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <Layout>
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button className="absolute top-4 right-4 text-white/70 hover:text-white p-2">
+            <X size={32} onClick={() => setSelectedImage(null)} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Full view"
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </motion.div>
+      )}
       <section className="section-padding max-w-7xl mx-auto">
         <SectionHeading
           label="Portfolio"
@@ -65,31 +77,15 @@ const Portfolio = () => {
           description="Explore our collection of thoughtfully designed spaces spanning residential, commercial, and hospitality projects."
           align="center"
         />
-        <div className="flex justify-center gap-6 mb-14 flex-wrap">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`font-body text-xs tracking-widest uppercase transition-colors pb-1 border-b-2 ${
-                active === cat ? "border-accent text-accent" : "border-transparent text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
+        <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {filtered.map((project, i) => (
+            {allProjects.map((project, i) => (
               <motion.div
-                key={project.title + i}
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
@@ -97,20 +93,14 @@ const Portfolio = () => {
               >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`Project ${i + 1}`}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  onClick={() => setSelectedImage(project.image)}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6">
-                  <span className="font-body text-xs tracking-[0.2em] uppercase text-accent">{project.category}</span>
-                  <h3 className="font-display text-2xl text-primary-foreground mt-1">{project.title}</h3>
-                  <p className="font-body text-sm text-primary-foreground/60 mt-1">{project.location}</p>
-                </div>
               </motion.div>
             ))}
           </motion.div>
-        </AnimatePresence>
       </section>
 
       <WhatsAppCTA 

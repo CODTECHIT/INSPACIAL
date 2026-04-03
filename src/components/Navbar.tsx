@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-3 group">
           <img src="/logo.png" alt="Inspacial Logo" className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" />
           <span className="font-display text-2xl font-semibold tracking-tight text-foreground uppercase">
-            INSPACIAL<span className="text-accent">.</span>
+            INSPACIAL <span className="text-accent">DESIGNS</span>
           </span>
         </Link>
 

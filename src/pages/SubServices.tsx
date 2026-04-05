@@ -3,6 +3,7 @@ import { Sofa, Lightbulb, Palette, Building, Construction, ArrowRight } from "lu
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { WhatsAppButton, WhatsAppCTA } from "@/components/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 
 // Using relevant assets
@@ -59,6 +60,12 @@ const subServices = [
 const SubServices = () => {
   return (
     <Layout>
+      <SEO 
+        title="Sub Services"
+        description="Explore our specialized interior design sub-services including Custom Furniture Design, Designer Lighting Concepts, Material & Finish Selection, Facade & Elevation Design, and Renovation & Luxury Remodeling. Perfect every element of your luxury space."
+        keywords="custom furniture design, designer lighting, material selection, facade design, elevation design, renovation services, luxury remodeling, specialized interior services, bespoke furniture, lighting consultation"
+        url="https://www.inspacialdesigns.com/sub-services"
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center overflow-hidden bg-primary">
         <div className="absolute inset-0 opacity-40">

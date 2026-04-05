@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import { SEO } from "@/components/SEO";
 import companyImage from "@/assets/hero-living.jpg";
 import projectImage from "@/assets/project-kitchen.jpg";
 import { Link } from "react-router-dom";
@@ -52,6 +53,12 @@ const values = [
 const About = () => {
   return (
     <Layout>
+      <SEO 
+        title="About"
+        description="Learn about INSPACIAL DESIGNS - a premium design studio founded by Saif, specializing in bespoke residential and luxury spaces. With 150+ projects and 12+ years of experience, we deliver refined aesthetics, functional planning, and timeless design experiences."
+        keywords="about Inspacial Designs, luxury interior design studio, Saif founder, premium design studio, bespoke residential design, luxury spaces, Mumbai interior designer, design philosophy"
+        url="https://www.inspacialdesigns.com/about"
+      />
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
         <img src={companyImage} alt="Inspacial Designs Luxury Interior" className="absolute inset-0 w-full h-full object-cover" />

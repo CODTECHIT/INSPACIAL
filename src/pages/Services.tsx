@@ -3,6 +3,7 @@ import { Building, Paintbrush, Box, Layers, Sofa, Lightbulb, Palette, Home, Zap,
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { WhatsAppButton, WhatsAppCTA } from "@/components/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 
 import { Link } from "react-router-dom";
 
@@ -101,6 +102,12 @@ const process = [
 const Services = () => {
   return (
     <Layout>
+      <SEO 
+        title="Services"
+        description="Explore our comprehensive luxury interior design services including Architectural Planning, Interior Design, 3D Visualization, Space Planning, Custom Furniture Design, Designer Lighting, Material Selection, and Renovation Consultation. End-to-end premium service."
+        keywords="luxury interior design services, architectural planning, interior design, 3D visualization, space planning, custom furniture design, designer lighting, material selection, renovation consultation, Mumbai design services"
+        url="https://www.inspacialdesigns.com/services"
+      />
       <section className="section-padding max-w-7xl mx-auto">
         <SectionHeading
           label="Services"

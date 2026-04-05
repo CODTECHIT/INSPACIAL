@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { WhatsAppCTA } from "@/components/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 import { X } from "lucide-react";
 
 const allProjects = [
@@ -51,6 +52,12 @@ const Portfolio = () => {
 
   return (
     <Layout>
+      <SEO 
+        title="Portfolio"
+        description="Explore our portfolio of 150+ luxury interior design projects spanning residential, commercial, and hospitality spaces. View our collection of thoughtfully designed bespoke sanctuaries and premium residential projects."
+        keywords="portfolio interior design, luxury interior projects, residential design portfolio, commercial interior design, Mumbai interior design projects, bespoke home design, luxury villa interior, premium apartment interior"
+        url="https://www.inspacialdesigns.com/portfolio"
+      />
       {selectedImage && (
         <motion.div
           initial={{ opacity: 0 }}

@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { useToast } from "@/hooks/use-toast";
+import { SEO } from "@/components/SEO";
 
 const WHATSAPP_NUMBER = "918179190101";
 
@@ -38,6 +39,12 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO 
+        title="Contact"
+        description="Get in touch with INSPACIAL DESIGNS for your luxury interior design project. Contact us for a complimentary consultation. Reach us via phone, email, or WhatsApp. We respond within 24 hours."
+        keywords="contact Inspacial Designs, interior design consultation, luxury interior designer Mumbai, book consultation, contact interior designer, WhatsApp interior design"
+        url="https://www.inspacialdesigns.com/contact"
+      />
       <section className="section-padding max-w-7xl mx-auto">
         <SectionHeading
           label="Contact"

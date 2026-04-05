@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy-loaded components
-const Index = lazy(() => import("./pages/Index"));
+import Index from "./pages/Index";
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Services = lazy(() => import("./pages/Services"));
 const SubServices = lazy(() => import("./pages/SubServices"));

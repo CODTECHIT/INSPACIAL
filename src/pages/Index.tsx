@@ -4,19 +4,20 @@ import { ArrowRight, Paintbrush, Sofa, Lightbulb, Ruler, Building, Box, Zap, Lay
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 
-import heroImage1 from "@/assets/hero-living.jpg";
-import heroImage2 from "@/assets/project-kitchen.jpg";
-import heroImage3 from "@/assets/project-office.jpg";
-import heroImage4 from "@/assets/project-bedroom.jpg";
+const heroImage1 = "/hero/hero-living.jpg";
+const heroImage2 = "/hero/project-kitchen.jpg";
+const heroImage3 = "/hero/project-office.jpg";
+const heroImage4 = "/hero/project-bedroom.jpg";
 
-import bedroomImage from "@/assets/project-bedroom.jpg";
-import kitchenImage from "@/assets/project-kitchen.jpg";
+import bedroomImage from "/hero/project-bedroom.jpg";
+import kitchenImage from "/hero/project-kitchen.jpg";
 import bathroomImage from "@/assets/project-bathroom.jpg";
-import officeImage from "@/assets/project-office.jpg";
+import officeImage from "/hero/project-office.jpg";
 import designerImage from "@/assets/designer-portrait.jpg";
 
 const heroImages = [heroImage1, heroImage2, heroImage3, heroImage4];
@@ -134,8 +135,18 @@ const fadeUp = {
 const Index = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const isFirstRender = useEffect(() => { return; }, []); // Ref would be better but let's use a simple state or just stick to a logic.
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    // Preload all hero images to ensure smooth transitions
+    heroImages.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+
+    setIsInitialized(true);
+
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
     }, 4000);
@@ -144,6 +155,11 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO 
+        title="Home"
+        description="Inspacial Designs is a premium architectural planning and interior design studio specializing in bespoke residential and luxury spaces. Transform your vision into reality with 150+ luxury projects completed. Book your consultation today."
+        keywords="luxury interior design, premium home design, architectural planning, bespoke residential, 3D visualization, space planning, custom furniture, designer lighting, material selection, renovation, Mumbai interior designer"
+      />
       {selectedImage && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -168,16 +184,19 @@ const Index = () => {
           <AnimatePresence mode="popLayout">
             <motion.div
               key={currentImage}
-              initial={{ opacity: 0 }}
+              initial={!isInitialized && currentImage === 0 ? { opacity: 1 } : { opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full"
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full bg-black/20"
             >
               <img
                 src={heroImages[currentImage]}
                 alt="Luxury interior design"
                 className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority={currentImage === 0 ? "high" : "auto"}
+                decoding="async"
               />
             </motion.div>
           </AnimatePresence>

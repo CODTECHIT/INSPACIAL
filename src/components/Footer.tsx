@@ -44,12 +44,15 @@ const Footer = () => {
             © 2026 Inspacial Designs. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {["Instagram", "Pinterest", "LinkedIn"].map((social) => (
-              <a key={social} href="#" className="font-body text-xs text-primary-foreground/40 hover:text-accent transition-colors tracking-widest uppercase">
-                {social}
+              <a 
+                href="https://www.instagram.com/inspacial_designs?igsh=MTZvb284dHNueWs5YQ==" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-body text-xs text-primary-foreground/40 hover:text-accent transition-colors tracking-widest uppercase"
+              >
+                Instagram
               </a>
-            ))}
-          </div>
+            </div>
         </div>
       </div>
     </footer>

@@ -33,8 +33,8 @@ const Footer = () => {
           <div>
             <h4 className="font-body text-xs tracking-widest uppercase mb-6 text-accent">Contact</h4>
             <div className="flex flex-col gap-3 font-body text-sm text-primary-foreground/60">
-              <p>hello@inspacialdesigns.com</p>
-              <p>+91 81791 90101</p>
+              <p>inspacialdesigns.info@gmail.com</p>
+              <p>+91 77993 26935</p>
               <p>Inspacial Designs Studio<br />Premium Residential & Luxury Spaces</p>
             </div>
           </div>

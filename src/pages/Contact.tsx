@@ -6,12 +6,12 @@ import SectionHeading from "@/components/SectionHeading";
 import { useToast } from "@/hooks/use-toast";
 import { SEO } from "@/components/SEO";
 
-const WHATSAPP_NUMBER = "918179190101";
+const WHATSAPP_NUMBER = "917799326935";
 
 const contactInfo = [
   { icon: MapPin, label: "Studio", value: "Inspacial Designs Studio\nPremium Residential & Luxury Spaces" },
-  { icon: Phone, label: "Call / WhatsApp", value: "+91 81791 90101" },
-  { icon: Mail, label: "Email Us", value: "hello@inspacialdesigns.com" },
+  { icon: Phone, label: "Call / WhatsApp", value: "+91 77993 26935" },
+  { icon: Mail, label: "Email Us", value: "inspacialdesigns.info@gmail.com" },
   { icon: Clock, label: "Hours", value: "Mon – Sat: 10AM – 7PM\nSun: By Appointment" },
 ];
 
